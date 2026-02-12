@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
+    <meta name="description" content="Профессиональные кадастровые и геодезические работы. Оформление земельных участков от государства, помощь льготным категориям. Работаем по Красноярскому краю и всей РФ.">
+    <meta name="keywords" content="кадастровые услуги, межевание, геодезия, оформление земли, Красноярск, льготные категории">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a3b5c'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>МК</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === СТИЛЬ КАК В ПРИМЕРЕ: СТРОГО, ДЕЛОВО, АДАПТИВНО === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #1e1e2f;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === ШАПКА === */
+        .header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: #0a3b5c;
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0a3b5c;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: #0a3b5c;
+        }
+
+        .phone-link {
+            background: #0a3b5c;
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #0a3b5c;
+        }
+
+        /* === ГЕРОЙ === */
+        .hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #0a3b5c;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0a3b5c;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: #0a3b5c;
+            color: white;
+            box-shadow: 0 8px 20px rgba(10,59,92,0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #0a3b5c;
+            color: #0a3b5c;
+        }
+
+        .btn-primary:hover {
+            background: #0e4d75;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline:hover {
+            background: #f0f7fa;
+        }
+
+        .hero-right {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            border: 1px solid #edf2f7;
+        }
+
+        /* === СЕКЦИИ === */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0a3b5c;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            max-width: 600px;
+            margin-bottom: 50px;
+        }
+
+        /* === КАРТОЧКИ УСЛУГ === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #0a3b5c;
+            box-shadow: 0 15px 30px rgba(10,59,92,0.08);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #eef7ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a3b5c;
+            font-size: 24px;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #0a3b5c;
+        }
+
+        .service-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0a3b5c;
+            margin-top: 20px;
+        }
+
+        .price-note {
+            font-size: 13px;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        /* === ЭТАПЫ РАБОТЫ === */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #0a3b5c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #0a3b5c;
+        }
+
+        /* === ФОРМА ЗАЯВКИ === */
+        .form-section {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 60px;
+            margin-top: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .form-title {
+            font-size: 28px;
+            color: #0a3b5c;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 1px solid #e0e7ec;
+            border-radius: 50px;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            border-color: #0a3b5c;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10,59,92,0.1);
+        }
+
+        .form-submit {
+            background: #0a3b5c;
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+        }
+
+        .form-submit:hover {
+            background: #0e4d75;
+        }
+
+        .policy {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 15px;
+        }
+
+        /* === УВЕДОМЛЕНИЕ - ПО ЦЕНТРУ И КРАСИВОЕ === */
+        .notification-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .notification-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .notification-modal {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .notification-overlay.show .notification-modal {
+            transform: scale(1);
+        }
+
+        .notification-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+        }
+
+        .notification-icon.success {
+            background: #d1fae5;
+            color: #10b981;
+        }
+
+        .notification-icon.error {
+            background: #fee2e2;
+            color: #ef4444;
+        }
+
+        .notification-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0a3b5c;
+            margin-bottom: 15px;
+        }
+
+        .notification-message {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .notification-button {
+            background: #0a3b5c;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .notification-button:hover {
+            background: #0e4d75;
+        }
+
+        /* === КОНТАКТЫ === */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 25px;
+            background: white;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #eef7ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a3b5c;
+            font-size: 20px;
+        }
+
+        .contact-detail h4 {
+            font-size: 18px;
+            color: #0a3b5c;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail a {
+            color: #374151;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .contact-detail a:hover {
+            color: #0a3b5c;
+        }
+
+        /* === ФУТЕР === */
+        .footer {
+            background: #0a1e2c;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col a {
+            color: #b0c4ce;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: #b0c4ce;
+            font-size: 14px;
+        }
+
+        /* === АДАПТАЦИЯ ПОД ТЕЛЕФОН === */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .form-section {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 25px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                border-top: 1px solid #eef2f6;
+                gap: 20px;
+            }
+            
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 25px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-section {
+                padding: 30px 20px;
+            }
+            
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+            
+            .notification-modal {
+                padding: 30px 20px;
+            }
+            
+            .notification-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- УВЕДОМЛЕНИЕ - КРАСИВОЕ МОДАЛЬНОЕ ОКНО ПО ЦЕНТРУ -->
+    <div id="notificationOverlay" class="notification-overlay">
+        <div class="notification-modal">
+            <div id="notificationIcon" class="notification-icon success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div id="notificationTitle" class="notification-title">Спасибо!</div>
+            <div id="notificationMessage" class="notification-message">Заявка отправлена. Мы свяжемся с вами в течение 15 минут.</div>
+            <button onclick="closeNotification()" class="notification-button">Закрыть</button>
+        </div>
+    </div>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>МОЙ КАДАСТР</h1>
+                    <p>Кадастровые и геодезические услуги</p>
+                </div>
+            </div>
+            
+            <nav class="nav" id="nav">
+                <a href="#services">Услуги</a>
+                <a href="#about">О компании</a>
+                <a href="#process">Как работаем</a>
+                <a href="#contacts">Контакты</a>
+                <a href="tel:+79029426556" class="phone-link">
+                    <i class="fas fa-phone-alt"></i> +7 902 942-65-56
+                </a>
+            </nav>
+            
+            <div class="mobile-menu-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ГЕРОЙ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <h1 class="hero-title">Кадастровые работы в Красноярском крае и по всей РФ</h1>
+                    <p class="hero-desc">Официальное оформление земельных участков от государства, помощь льготным категориям, межевание, геодезия. Работаем дистанционно.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">9 лет</span>
+                            <span class="stat-label">В кадастре</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">600+</span>
+                            <span class="stat-label">Клиентов</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Регионов РФ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="https://t.me/alllinaami" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-telegram"></i> Консультация в Telegram
+                        </a>
+                        <a href="#order" class="btn btn-outline">
+                            <i class="fas fa-calculator"></i> Рассчитать стоимость
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <h3 style="font-size: 22px; color: #0a3b5c; margin-bottom: 25px;">Оставьте заявку</h3>
+                    <p style="color: #4b5563; margin-bottom: 25px;">Свяжемся с вами за 15 минут и ответим на все вопросы</p>
+                    
+                    <form id="quickForm">
+                        <div class="form-group">
+                            <input type="tel" id="quickPhone" class="form-input" placeholder="+7 (___) ___-__-__" value="+7" required>
+                        </div>
+                        <button type="submit" class="form-submit">Отправить заявку</button>
+                        <p class="policy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+                    </form>
+                    
+                    <p style="margin-top: 30px; text-align: center; font-size: 14px;">
+                        <i class="fab fa-telegram" style="color: #0088cc;"></i> 
+                        Наш канал: <a href="https://t.me/prokadastr24" target="_blank" style="color: #0a3b5c; font-weight: 600;">@prokadastr24</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <p class="section-subtitle">Полный комплекс кадастровых и геодезических работ для физических и юридических лиц</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Межевание земельного участка</h3>
+                    <p>Точное определение границ участка, подготовка межевого плана. Помогаем избежать споров с соседями.</p>
+                    <div class="service-price">от 8 000 ₽</div>
+                    <div class="price-note">Срок: от 10 дней</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Постановка дома на учет</h3>
+                    <p>Технический план, постановка на кадастровый учет, регистрация права собственности.</p>
+                    <div class="service-price">от 10 000 ₽</div>
+                    <div class="price-note">Срок: от 12 дней</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <h3>Вынос границ в натуру</h3>
+                    <p>Выезд специалиста, геодезическая съемка, установка межевых знаков на местности.</p>
+                    <div class="service-price">от 5 000 ₽</div>
+                    <div class="price-note">Выезд в день обращения</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>Оформление от государства</h3>
+                    <p>Помощь в получении земельных участков от администрации, аукционы, льготные программы.</p>
+                    <div class="service-price">от 15 000 ₽</div>
+                    <div class="price-note">Под ключ с гарантией</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Льготным категориям</h3>
+                    <p>Многодетные семьи, инвалиды, ветераны. Помогаем оформить землю с учетом всех льгот.</p>
+                    <div class="service-price">от 12 000 ₽</div>
+                    <div class="price-note">Специальные условия</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3>Прирезка участка</h3>
+                    <p>Увеличение площади за счет муниципальных земель, подготовка схемы КПТ.</p>
+                    <div class="service-price">от 20 000 ₽</div>
+                    <div class="price-note">Согласование с администрацией</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О КОМПАНИИ -->
+    <section id="about" class="section" style="background: #f8fafc;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div>
+                    <span style="background: #0a3b5c; color: white; padding: 8px 20px; border-radius: 30px; font-size: 14px; font-weight: 600;">О КОМПАНИИ</span>
+                    <h2 class="section-title" style="margin-top: 25px;">МОЙ КАДАСТР — качество, проверенное клиентами</h2>
+                    <p style="font-size: 16px; color: #4b5563; margin-bottom: 25px;">Мы специализируемся на кадастровых и геодезических работах с 2023 года. За это время помогли оформить более 600 объектов недвижимости по всей России.</p>
+                    <p style="font-size: 16px; color: #4b5563; margin-bottom: 35px;">Главный принцип — работа без посредников. Вы напрямую общаетесь с кадастровым инженером, который ведет ваш объект от заявки до готовых документов.</p>
+                    
+                    <div style="display: flex; gap: 30px;">
+                        <div>
+                            <div style="font-size: 36px; font-weight: 800; color: #0a3b5c;">100%</div>
+                            <div style="font-size: 14px; color: #6b7280;">Гарантия результата</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 36px; font-weight: 800; color: #0a3b5c;">24/7</div>
+                            <div style="font-size: 14px; color: #6b7280;">Консультации в Telegram</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.03); border: 1px solid #edf2f7;">
+                    <i class="fas fa-quote-right" style="font-size: 40px; color: #0a3b5c; opacity: 0.3; margin-bottom: 20px;"></i>
+                    <p style="font-size: 18px; font-style: italic; color: #374151; margin-bottom: 25px;">Наша главная цель — качественное и оперативное решение вопросов, связанных с кадастровым учетом. Мы работаем на результат и дорожим своей репутацией.</p>
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="width: 60px; height: 60px; background: #0a3b5c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div>
+                            <strong style="font-size: 18px; color: #0a3b5c;">Алина</strong>
+                            <p style="font-size: 14px; color: #6b7280;">Руководитель, кадастровый инженер</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ЭТАПЫ РАБОТЫ -->
+    <section id="process" class="section">
+        <div class="container">
+            <h2 class="section-title">Как мы работаем</h2>
+            <p class="section-subtitle">4 простых шага от консультации до готовых документов</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Расскажите о задаче</h4>
+                    <p style="color: #6b7280;">Позвоните или напишите в Telegram — мы проконсультируем бесплатно</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Заключаем договор</h4>
+                    <p style="color: #6b7280;">Обсуждаем сроки, стоимость и фиксируем гарантии</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Выполняем работы</h4>
+                    <p style="color: #6b7280;">Выезд специалиста, подготовка документов, подача в Росреестр</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Вы получаете результат</h4>
+                    <p style="color: #6b7280;">Готовые документы с официальной регистрацией</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФОРМА ЗАЯВКИ -->
+    <section id="order" class="section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="form-section">
+                <div class="form-grid">
+                    <div>
+                        <h3 class="form-title">Рассчитайте предварительную стоимость</h3>
+                        <p style="font-size: 18px; color: #4b5563; margin-bottom: 30px;">Оставьте заявку — мы ответим в течение суток и подготовим индивидуальное предложение</p>
+                        
+                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: #0a3b5c;"></i>
+                                <span>Бесплатная консультация</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-check-circle" style="color: #0a3b5c;"></i>
+                                <span>Выезд в день обращения</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form id="orderForm">
+                            <div class="form-group">
+                                <input type="tel" id="orderPhone" class="form-input" placeholder="Ваш телефон" value="+7" required>
+                            </div>
+                            <button type="submit" class="form-submit">Оставить заявку</button>
+                            <p class="policy">Нажимая на кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section id="contacts" class="section">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+            
+            <div class="contacts-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Telegram</h4>
+                        <a href="https://t.me/alllinaami" target="_blank">@alllinaami</a>
+                        <p style="color: #6b7280; margin-top: 5px; font-size: 14px;">Ответ 24/7</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Телефон / WhatsApp</h4>
+                        <a href="tel:+79029426556">+7 902 942-65-56</a>
+                        <p style="color: #6b7280; margin-top: 5px; font-size: 14px;">Пн-Пт 10:00-19:00</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Регионы работы</h4>
+                        <p><strong>Красноярский край</strong> — основной регион</p>
+                        <p style="margin-top: 5px;">Вся Россия — дистанционно</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="contact-detail">
+                        <h4>Наш канал</h4>
+                        <a href="https://t.me/prokadastr24" target="_blank">@prokadastr24</a>
+                        <p style="color: #6b7280; margin-top: 5px; font-size: 14px;">Новости и полезные посты</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>МОЙ КАДАСТР</h4>
+                    <p style="color: #b0c4ce; margin-bottom: 20px;">Профессиональные кадастровые и геодезические услуги с гарантией результата.</p>
+                    <div style="display: flex; gap: 15px;">
+                        <a href="https://t.me/alllinaami" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/prokadastr24" target="_blank"><i class="fas fa-newspaper"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <a href="#services">Межевание</a>
+                    <a href="#services">Постановка на учет</a>
+                    <a href="#services">Геодезические работы</a>
+                    <a href="#services">Оформление от государства</a>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="tel:+79029426556">+7 902 942-65-56</a>
+                    <a href="https://t.me/alllinaami">@alllinaami (Telegram)</a>
+                    <p style="color: #b0c4ce; margin-top: 10px;">Красноярский край</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Реквизиты</h4>
+                    <p style="color: #b0c4ce;">ИП предоставляется по запросу</p>
+                    <p style="color: #b0c4ce; margin-top: 10px;">© 2023-2025 МОЙ КАДАСТР</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>Все права защищены. Информация на сайте не является публичной офертой.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // === НАСТРОЙКИ TELEGRAM ===
+        const TELEGRAM_TOKEN = '8547157787:AAFtPYW7uWZI_AidspthY2Yv6XBITtbKijI';
+        const TELEGRAM_CHATS = ['7190496660', '947181995'];
+
+        // === УВЕДОМЛЕНИЕ ===
+        const notificationOverlay = document.getElementById('notificationOverlay');
+        const notificationIcon = document.getElementById('notificationIcon');
+        const notificationTitle = document.getElementById('notificationTitle');
+        const notificationMessage = document.getElementById('notificationMessage');
+
+        function showNotification(type, title, message) {
+            // Устанавливаем иконку
+            notificationIcon.className = 'notification-icon ' + type;
+            notificationIcon.innerHTML = type === 'success' 
+                ? '<i class="fas fa-check-circle"></i>' 
+                : '<i class="fas fa-exclamation-circle"></i>';
+            
+            // Устанавливаем текст
+            notificationTitle.textContent = title;
+            notificationMessage.textContent = message;
+            
+            // Показываем уведомление
+            notificationOverlay.classList.add('show');
+        }
+
+        function closeNotification() {
+            notificationOverlay.classList.remove('show');
+        }
+
+        // === ФОРМАТИРОВАНИЕ ТЕЛЕФОНА ===
+        function formatPhone(input) {
+            let value = input.value.replace(/\D/g, '');
+            
+            if (value.length === 0) {
+                input.value = '+7';
+                return;
+            }
+            
+            if (value.length === 1 && value === '7') {
+                input.value = '+7';
+                return;
+            }
+            
+            if (value.length === 1 && value !== '7') {
+                input.value = '+7 (' + value;
+                return;
+            }
+            
+            if (value.length <= 4) {
+                input.value = '+7 (' + value.substring(1);
+                return;
+            }
+            
+            if (value.length <= 7) {
+                input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4);
+                return;
+            }
+            
+            if (value.length <= 9) {
+                input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7);
+                return;
+            }
+            
+            input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7, 9) + '-' + value.substring(9, 11);
+        }
+
+        // === ОТПРАВКА В TELEGRAM ===
+        async function sendToTelegram(phone, formName) {
+            const date = new Date();
+            const formattedDate = date.toLocaleString('ru-RU', { 
+                day: '2-digit', 
+                month: '2-digit', 
+                year: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            
+            const message = `📌 <b>НОВАЯ ЗАЯВКА С САЙТА</b>\n\n` +
+                          `📞 <b>Телефон:</b> ${phone}\n` +
+                          `📋 <b>Форма:</b> ${formName}\n` +
+                          `🌐 <b>Страница:</b> ${window.location.pathname}\n` +
+                          `🕐 <b>Время:</b> ${formattedDate}\n\n` +
+                          `👤 <b>Источник:</b> МОЙ КАДАСТР`;
+            
+            let success = false;
+            
+            for (const chatId of TELEGRAM_CHATS) {
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'HTML'
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        success = true;
+                    }
+                } catch (error) {
+                    console.error(`Ошибка отправки в чат ${chatId}:`, error);
+                }
+            }
+            
+            return success;
+        }
+
+        // === МОБИЛЬНОЕ МЕНЮ ===
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+        
+        mobileToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            this.innerHTML = nav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // === ПЛАВНАЯ ПРОКРУТКА ===
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // === ФОРМАТИРОВАНИЕ ТЕЛЕФОНОВ ===
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                formatPhone(this);
+            });
+            
+            input.addEventListener('focus', function() {
+                if (this.value === '') {
+                    this.value = '+7';
+                }
+            });
+        });
+
+        // === ОБРАБОТКА ФОРМ ===
+        async function handleFormSubmit(formId, phoneId, formName) {
+            const form = document.getElementById(formId);
+            const phoneInput = document.getElementById(phoneId);
+            
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const phone = phoneInput.value.trim();
+                
+                if (phone === '+7' || phone.length < 10) {
+                    showNotification('error', 'Ошибка', 'Введите корректный номер телефона');
+                    return;
+                }
+                
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
+                submitBtn.disabled = true;
+                
+                try {
+                    const sent = await sendToTelegram(phone, formName);
+                    
+                    if (sent) {
+                        showNotification('success', 'Спасибо!', 'Заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
+                        phoneInput.value = '+7';
+                    } else {
+                        showNotification('error', 'Ошибка', 'Не удалось отправить заявку. Попробуйте позже или напишите в Telegram.');
+                    }
+                } catch (error) {
+                    showNotification('error', 'Ошибка', 'Что-то пошло не так. Попробуйте еще раз.');
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // Инициализация форм
+        handleFormSubmit('quickForm', 'quickPhone', 'Быстрая заявка (герой)');
+        handleFormSubmit('orderForm', 'orderPhone', 'Заявка на расчет стоимости');
+
+        // Закрытие по клику на фон
+        notificationOverlay.addEventListener('click', function(e) {
+            if (e.target === notificationOverlay) {
+                closeNotification();
+            }
+        });
+
+        // Закрытие по Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && notificationOverlay.classList.contains('show')) {
+                closeNotification();
+            }
+        });
+    </script>
+</body>
+</html>
