@@ -2,108 +2,90 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <!-- КРИТИЧЕСКИ ВАЖНО ДЛЯ ТЕЛЕФОНОВ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, shrink-to-fit=no, viewport-fit=cover">
     <title>МОЙ КАДАСТР | Кадастровые услуги в Красноярске и РФ</title>
     <meta name="description" content="Профессиональные кадастровые и геодезические работы. Оформление земельных участков от государства, помощь льготным категориям. Работаем по Красноярскому краю и всей РФ.">
-    <meta name="keywords" content="кадастровые услуги, межевание, геодезия, оформление земли, Красноярск, льготные категории">
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a3b5c'/><text x='50' y='65' font-size='50' text-anchor='middle' fill='white' font-family='Arial'>МК</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* === СТИЛЬ КАК В ПРИМЕРЕ: СТРОГО, ДЕЛОВО, АДАПТИВНО === */
+        /* === СБРОС ВСЕХ ОТСТУПОВ, ЧТОБЫ НИЧЕГО НЕ ВЫЛЕТАЛО === */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
         }
 
         body {
-            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #ffffff;
             color: #1e1e2f;
             line-height: 1.5;
-            overflow-x: hidden;
+            font-size: 16px;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
-        /* === ШАПКА === */
+        /* === ШАПКА - БЕЗ ВЫЛЕТОВ === */
         .header {
             background: white;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 15px 0;
+            padding: 12px 0;
+            width: 100%;
         }
 
         .header-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            flex-shrink: 0;
         }
 
         .logo-icon {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: #0a3b5c;
             color: white;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
+            font-size: 20px;
+            flex-shrink: 0;
         }
 
         .logo-text h1 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             color: #0a3b5c;
+            line-height: 1.2;
         }
 
         .logo-text p {
-            font-size: 12px;
+            font-size: 11px;
             color: #6b7280;
-            font-weight: 500;
-        }
-
-        .nav {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-            font-size: 15px;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover {
-            color: #0a3b5c;
-        }
-
-        .phone-link {
-            background: #0a3b5c;
-            color: white !important;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .mobile-menu-toggle {
@@ -111,55 +93,82 @@
             font-size: 24px;
             cursor: pointer;
             color: #0a3b5c;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        /* === ГЕРОЙ === */
+        .nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .phone-link {
+            background: #0a3b5c;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        /* === ГЕРОЙ - ПОЛНАЯ ШИРИНА БЕЗ ВЫЛЕТОВ === */
         .hero {
-            padding: 60px 0;
+            padding: 40px 0;
             background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
             border-bottom: 1px solid #eef2f6;
+            width: 100%;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 30px;
             align-items: center;
         }
 
         .hero-title {
-            font-size: 42px;
+            font-size: 36px;
             font-weight: 800;
             color: #0a3b5c;
             line-height: 1.2;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .hero-desc {
-            font-size: 18px;
+            font-size: 16px;
             color: #4b5563;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .hero-stats {
             display: flex;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .stat-item {
-            display: flex;
-            flex-direction: column;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
         }
 
         .stat-number {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             color: #0a3b5c;
         }
 
         .stat-label {
-            font-size: 14px;
+            font-size: 13px;
             color: #6b7280;
         }
 
@@ -170,23 +179,21 @@
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 12px 24px;
             border-radius: 40px;
             font-weight: 600;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            transition: all 0.2s;
+            gap: 8px;
+            font-size: 15px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
         }
 
         .btn-primary {
             background: #0a3b5c;
             color: white;
-            box-shadow: 0 8px 20px rgba(10,59,92,0.15);
         }
 
         .btn-outline {
@@ -195,207 +202,77 @@
             color: #0a3b5c;
         }
 
-        .btn-primary:hover {
-            background: #0e4d75;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline:hover {
-            background: #f0f7fa;
-        }
-
         .hero-right {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             border: 1px solid #edf2f7;
         }
 
-        /* === СЕКЦИИ === */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #0a3b5c;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: #6b7280;
-            max-width: 600px;
-            margin-bottom: 50px;
-        }
-
-        /* === КАРТОЧКИ УСЛУГ === */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: white;
-            border: 1px solid #eef2f6;
-            border-radius: 16px;
-            padding: 30px;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: #0a3b5c;
-            box-shadow: 0 15px 30px rgba(10,59,92,0.08);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: #eef7ff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0a3b5c;
-            font-size: 24px;
-            margin-bottom: 25px;
-        }
-
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #0a3b5c;
-        }
-
-        .service-price {
-            font-size: 24px;
-            font-weight: 700;
-            color: #0a3b5c;
-            margin-top: 20px;
-        }
-
-        .price-note {
-            font-size: 13px;
-            color: #6b7280;
-            margin-top: 5px;
-        }
-
-        /* === ЭТАПЫ РАБОТЫ === */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: #0a3b5c;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-        }
-
-        .step h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #0a3b5c;
-        }
-
-        /* === ФОРМА ЗАЯВКИ === */
-        .form-section {
-            background: #f8fafc;
-            border-radius: 20px;
-            padding: 60px;
-            margin-top: 40px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .form-title {
-            font-size: 28px;
-            color: #0a3b5c;
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
+        /* === ФОРМЫ - ПОЛНАЯ ШИРИНА === */
         .form-input {
             width: 100%;
-            padding: 18px 25px;
+            padding: 15px 20px;
             border: 1px solid #e0e7ec;
             border-radius: 50px;
-            font-size: 16px;
-            transition: all 0.2s;
-        }
-
-        .form-input:focus {
-            border-color: #0a3b5c;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(10,59,92,0.1);
+            font-size: 15px;
         }
 
         .form-submit {
             background: #0a3b5c;
             color: white;
             border: none;
-            padding: 18px 35px;
+            padding: 15px 25px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             width: 100%;
-            transition: all 0.2s;
         }
 
-        .form-submit:hover {
-            background: #0e4d75;
+        /* === КАРТОЧКИ - БЕЗ ВЫЛЕТОВ === */
+        .section {
+            padding: 50px 0;
+            width: 100%;
         }
 
-        .policy {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 15px;
+        .section-title {
+            font-size: 28px;
+            color: #0a3b5c;
+            margin-bottom: 15px;
         }
 
-        /* === УВЕДОМЛЕНИЕ - ПО ЦЕНТРУ И КРАСИВОЕ === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid #eef2f6;
+            border-radius: 16px;
+            padding: 25px;
+            width: 100%;
+        }
+
+        /* === УВЕДОМЛЕНИЕ - ПОЛНЫЙ ЭКРАН НА ТЕЛЕФОНЕ === */
         .notification-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(3px);
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: 0.3s;
+            padding: 20px;
         }
 
         .notification-overlay.show {
@@ -406,28 +283,22 @@
         .notification-modal {
             background: white;
             border-radius: 20px;
-            padding: 40px;
-            max-width: 450px;
-            width: 90%;
+            padding: 30px 25px;
+            width: 100%;
+            max-width: 400px;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .notification-overlay.show .notification-modal {
-            transform: scale(1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
         .notification-icon {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 40px;
+            margin: 0 auto 20px;
+            font-size: 35px;
         }
 
         .notification-icon.success {
@@ -435,211 +306,117 @@
             color: #10b981;
         }
 
-        .notification-icon.error {
-            background: #fee2e2;
-            color: #ef4444;
-        }
-
         .notification-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: #0a3b5c;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .notification-message {
-            font-size: 16px;
+            font-size: 15px;
             color: #6b7280;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
         .notification-button {
             background: #0a3b5c;
             color: white;
             border: none;
-            padding: 15px 40px;
+            padding: 14px 30px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.2s;
             width: 100%;
-        }
-
-        .notification-button:hover {
-            background: #0e4d75;
+            cursor: pointer;
         }
 
         /* === КОНТАКТЫ === */
         .contacts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 20px;
-            padding: 25px;
+            gap: 15px;
+            padding: 20px;
             background: white;
             border: 1px solid #eef2f6;
             border-radius: 16px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: #eef7ff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0a3b5c;
-            font-size: 20px;
-        }
-
-        .contact-detail h4 {
-            font-size: 18px;
-            color: #0a3b5c;
-            margin-bottom: 5px;
-        }
-
-        .contact-detail a {
-            color: #374151;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .contact-detail a:hover {
-            color: #0a3b5c;
         }
 
         /* === ФУТЕР === */
         .footer {
             background: #0a1e2c;
             color: white;
-            padding: 60px 0 30px;
+            padding: 40px 0 20px;
+            width: 100%;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 18px;
-        }
-
-        .footer-col a {
-            color: #b0c4ce;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            text-align: center;
-            color: #b0c4ce;
-            font-size: 14px;
-        }
-
-        /* === АДАПТАЦИЯ ПОД ТЕЛЕФОН === */
-        @media (max-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 36px;
-            }
-            
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .form-section {
-                padding: 40px;
-            }
-        }
-
+        /* === ТОЛЬКО ДЛЯ ТЕЛЕФОНОВ - ПОЛНЫЙ ЭКРАН БЕЗ ВЫЛЕТОВ === */
         @media (max-width: 768px) {
             .nav {
                 display: none;
             }
             
             .mobile-menu-toggle {
-                display: block;
+                display: flex;
             }
             
             .nav.active {
                 display: flex;
                 flex-direction: column;
                 position: absolute;
-                top: 80px;
+                top: 64px;
                 left: 0;
                 width: 100%;
                 background: white;
-                padding: 25px;
+                padding: 20px;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-                border-top: 1px solid #eef2f6;
-                gap: 20px;
+                gap: 15px;
             }
             
-            .hero-stats {
-                flex-wrap: wrap;
-                gap: 25px;
+            .nav.active a {
+                width: 100%;
+                padding: 12px;
+                text-align: center;
             }
             
-            .section {
-                padding: 60px 0;
-            }
-            
-            .steps {
+            .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-right {
+                padding: 25px 20px;
             }
             
             .services-grid {
                 grid-template-columns: 1fr;
             }
             
-            .form-section {
-                padding: 30px 20px;
-            }
-            
             .contacts-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 28px;
+                font-size: 24px;
             }
             
-            .hero-buttons {
-                flex-direction: column;
+            .hero-stats {
+                gap: 20px;
             }
             
             .btn {
@@ -648,21 +425,37 @@
             }
             
             .section-title {
-                font-size: 26px;
+                font-size: 24px;
+            }
+            
+            .service-card {
+                padding: 20px;
             }
             
             .notification-modal {
-                padding: 30px 20px;
+                padding: 25px 20px;
+                margin: 0 15px;
+                width: calc(100% - 30px);
             }
             
-            .notification-title {
-                font-size: 22px;
+            .logo-text h1 {
+                font-size: 16px;
+            }
+            
+            .logo-text p {
+                font-size: 10px;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- УВЕДОМЛЕНИЕ - КРАСИВОЕ МОДАЛЬНОЕ ОКНО ПО ЦЕНТРУ -->
+    <!-- УВЕДОМЛЕНИЕ НА ВЕСЬ ЭКРАН -->
     <div id="notificationOverlay" class="notification-overlay">
         <div class="notification-modal">
             <div id="notificationIcon" class="notification-icon success">
@@ -728,29 +521,29 @@
                     
                     <div class="hero-buttons">
                         <a href="https://t.me/alllinaami" class="btn btn-primary" target="_blank">
-                            <i class="fab fa-telegram"></i> Консультация в Telegram
+                            <i class="fab fa-telegram"></i> Консультация
                         </a>
                         <a href="#order" class="btn btn-outline">
-                            <i class="fas fa-calculator"></i> Рассчитать стоимость
+                            <i class="fas fa-calculator"></i> Рассчитать
                         </a>
                     </div>
                 </div>
                 
                 <div class="hero-right">
-                    <h3 style="font-size: 22px; color: #0a3b5c; margin-bottom: 25px;">Оставьте заявку</h3>
-                    <p style="color: #4b5563; margin-bottom: 25px;">Свяжемся с вами за 15 минут и ответим на все вопросы</p>
+                    <h3 style="font-size: 20px; color: #0a3b5c; margin-bottom: 20px;">Оставьте заявку</h3>
+                    <p style="color: #4b5563; margin-bottom: 20px; font-size: 15px;">Свяжемся с вами за 15 минут</p>
                     
                     <form id="quickForm">
                         <div class="form-group">
                             <input type="tel" id="quickPhone" class="form-input" placeholder="+7 (___) ___-__-__" value="+7" required>
                         </div>
                         <button type="submit" class="form-submit">Отправить заявку</button>
-                        <p class="policy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+                        <p class="policy" style="font-size: 11px; color: #6b7280; margin-top: 12px;">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
                     </form>
                     
-                    <p style="margin-top: 30px; text-align: center; font-size: 14px;">
+                    <p style="margin-top: 20px; text-align: center; font-size: 13px;">
                         <i class="fab fa-telegram" style="color: #0088cc;"></i> 
-                        Наш канал: <a href="https://t.me/prokadastr24" target="_blank" style="color: #0a3b5c; font-weight: 600;">@prokadastr24</a>
+                        <a href="https://t.me/prokadastr24" target="_blank" style="color: #0a3b5c;">@prokadastr24</a>
                     </p>
                 </div>
             </div>
@@ -761,67 +554,43 @@
     <section id="services" class="section">
         <div class="container">
             <h2 class="section-title">Наши услуги</h2>
-            <p class="section-subtitle">Полный комплекс кадастровых и геодезических работ для физических и юридических лиц</p>
+            <p class="section-subtitle" style="color: #6b7280; margin-bottom: 30px;">Полный комплекс кадастровых и геодезических работ</p>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
+                    <div class="service-icon" style="width: 50px; height: 50px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; font-size: 22px; margin-bottom: 20px;">
                         <i class="fas fa-ruler-combined"></i>
                     </div>
-                    <h3>Межевание земельного участка</h3>
-                    <p>Точное определение границ участка, подготовка межевого плана. Помогаем избежать споров с соседями.</p>
-                    <div class="service-price">от 8 000 ₽</div>
-                    <div class="price-note">Срок: от 10 дней</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: #0a3b5c;">Межевание</h3>
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 15px;">Определение границ участка, межевой план</p>
+                    <div class="service-price" style="font-size: 22px; font-weight: 700; color: #0a3b5c;">от 8 000 ₽</div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
+                    <div class="service-icon" style="width: 50px; height: 50px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; font-size: 22px; margin-bottom: 20px;">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3>Постановка дома на учет</h3>
-                    <p>Технический план, постановка на кадастровый учет, регистрация права собственности.</p>
-                    <div class="service-price">от 10 000 ₽</div>
-                    <div class="price-note">Срок: от 12 дней</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: #0a3b5c;">Постановка на учет</h3>
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 15px;">Технический план, регистрация прав</p>
+                    <div class="service-price" style="font-size: 22px; font-weight: 700; color: #0a3b5c;">от 10 000 ₽</div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
+                    <div class="service-icon" style="width: 50px; height: 50px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; font-size: 22px; margin-bottom: 20px;">
                         <i class="fas fa-compass"></i>
                     </div>
-                    <h3>Вынос границ в натуру</h3>
-                    <p>Выезд специалиста, геодезическая съемка, установка межевых знаков на местности.</p>
-                    <div class="service-price">от 5 000 ₽</div>
-                    <div class="price-note">Выезд в день обращения</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: #0a3b5c;">Вынос границ</h3>
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 15px;">Выезд геодезиста, установка межевых знаков</p>
+                    <div class="service-price" style="font-size: 22px; font-weight: 700; color: #0a3b5c;">от 5 000 ₽</div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">
+                    <div class="service-icon" style="width: 50px; height: 50px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; font-size: 22px; margin-bottom: 20px;">
                         <i class="fas fa-landmark"></i>
                     </div>
-                    <h3>Оформление от государства</h3>
-                    <p>Помощь в получении земельных участков от администрации, аукционы, льготные программы.</p>
-                    <div class="service-price">от 15 000 ₽</div>
-                    <div class="price-note">Под ключ с гарантией</div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Льготным категориям</h3>
-                    <p>Многодетные семьи, инвалиды, ветераны. Помогаем оформить землю с учетом всех льгот.</p>
-                    <div class="service-price">от 12 000 ₽</div>
-                    <div class="price-note">Специальные условия</div>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-signature"></i>
-                    </div>
-                    <h3>Прирезка участка</h3>
-                    <p>Увеличение площади за счет муниципальных земель, подготовка схемы КПТ.</p>
-                    <div class="service-price">от 20 000 ₽</div>
-                    <div class="price-note">Согласование с администрацией</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: #0a3b5c;">Оформление от государства</h3>
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 15px;">Земли администрации, аукционы, льготы</p>
+                    <div class="service-price" style="font-size: 22px; font-weight: 700; color: #0a3b5c;">от 15 000 ₽</div>
                 </div>
             </div>
         </div>
@@ -830,35 +599,34 @@
     <!-- О КОМПАНИИ -->
     <section id="about" class="section" style="background: #f8fafc;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center;">
                 <div>
-                    <span style="background: #0a3b5c; color: white; padding: 8px 20px; border-radius: 30px; font-size: 14px; font-weight: 600;">О КОМПАНИИ</span>
-                    <h2 class="section-title" style="margin-top: 25px;">МОЙ КАДАСТР — качество, проверенное клиентами</h2>
-                    <p style="font-size: 16px; color: #4b5563; margin-bottom: 25px;">Мы специализируемся на кадастровых и геодезических работах с 2023 года. За это время помогли оформить более 600 объектов недвижимости по всей России.</p>
-                    <p style="font-size: 16px; color: #4b5563; margin-bottom: 35px;">Главный принцип — работа без посредников. Вы напрямую общаетесь с кадастровым инженером, который ведет ваш объект от заявки до готовых документов.</p>
+                    <span style="background: #0a3b5c; color: white; padding: 6px 16px; border-radius: 30px; font-size: 13px; font-weight: 600;">О КОМПАНИИ</span>
+                    <h2 class="section-title" style="margin-top: 20px;">МОЙ КАДАСТР — качество, проверенное клиентами</h2>
+                    <p style="color: #4b5563; margin-bottom: 20px; font-size: 15px;">Более 600 оформленных объектов. Работаем без посредников — вы общаетесь напрямую с кадастровым инженером.</p>
                     
-                    <div style="display: flex; gap: 30px;">
+                    <div style="display: flex; gap: 25px;">
                         <div>
-                            <div style="font-size: 36px; font-weight: 800; color: #0a3b5c;">100%</div>
-                            <div style="font-size: 14px; color: #6b7280;">Гарантия результата</div>
+                            <div style="font-size: 30px; font-weight: 800; color: #0a3b5c;">100%</div>
+                            <div style="font-size: 13px; color: #6b7280;">Гарантия</div>
                         </div>
                         <div>
-                            <div style="font-size: 36px; font-weight: 800; color: #0a3b5c;">24/7</div>
-                            <div style="font-size: 14px; color: #6b7280;">Консультации в Telegram</div>
+                            <div style="font-size: 30px; font-weight: 800; color: #0a3b5c;">24/7</div>
+                            <div style="font-size: 13px; color: #6b7280;">Консультации</div>
                         </div>
                     </div>
                 </div>
                 
-                <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.03); border: 1px solid #edf2f7;">
-                    <i class="fas fa-quote-right" style="font-size: 40px; color: #0a3b5c; opacity: 0.3; margin-bottom: 20px;"></i>
-                    <p style="font-size: 18px; font-style: italic; color: #374151; margin-bottom: 25px;">Наша главная цель — качественное и оперативное решение вопросов, связанных с кадастровым учетом. Мы работаем на результат и дорожим своей репутацией.</p>
-                    <div style="display: flex; align-items: center; gap: 20px;">
-                        <div style="width: 60px; height: 60px; background: #0a3b5c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                <div style="background: white; padding: 30px; border-radius: 16px;">
+                    <i class="fas fa-quote-right" style="font-size: 32px; color: #0a3b5c; opacity: 0.2; margin-bottom: 15px;"></i>
+                    <p style="font-size: 16px; font-style: italic; margin-bottom: 20px;">Работаем на результат и дорожим репутацией</p>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: #0a3b5c; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div>
-                            <strong style="font-size: 18px; color: #0a3b5c;">Алина</strong>
-                            <p style="font-size: 14px; color: #6b7280;">Руководитель, кадастровый инженер</p>
+                            <strong style="color: #0a3b5c;">Алина</strong>
+                            <p style="font-size: 13px; color: #6b7280;">Руководитель</p>
                         </div>
                     </div>
                 </div>
@@ -870,28 +638,26 @@
     <section id="process" class="section">
         <div class="container">
             <h2 class="section-title">Как мы работаем</h2>
-            <p class="section-subtitle">4 простых шага от консультации до готовых документов</p>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Расскажите о задаче</h4>
-                    <p style="color: #6b7280;">Позвоните или напишите в Telegram — мы проконсультируем бесплатно</p>
+            <div class="steps" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px;">
+                <div class="step" style="text-align: center;">
+                    <div style="width: 45px; height: 45px; background: #0a3b5c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: 700;">1</div>
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">Консультация</h4>
+                    <p style="color: #6b7280; font-size: 13px;">Бесплатно</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Заключаем договор</h4>
-                    <p style="color: #6b7280;">Обсуждаем сроки, стоимость и фиксируем гарантии</p>
+                <div class="step" style="text-align: center;">
+                    <div style="width: 45px; height: 45px; background: #0a3b5c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: 700;">2</div>
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">Договор</h4>
+                    <p style="color: #6b7280; font-size: 13px;">С гарантией</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Выполняем работы</h4>
-                    <p style="color: #6b7280;">Выезд специалиста, подготовка документов, подача в Росреестр</p>
+                <div class="step" style="text-align: center;">
+                    <div style="width: 45px; height: 45px; background: #0a3b5c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: 700;">3</div>
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">Работы</h4>
+                    <p style="color: #6b7280; font-size: 13px;">Выезд / документы</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Вы получаете результат</h4>
-                    <p style="color: #6b7280;">Готовые документы с официальной регистрацией</p>
+                <div class="step" style="text-align: center;">
+                    <div style="width: 45px; height: 45px; background: #0a3b5c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-weight: 700;">4</div>
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">Результат</h4>
+                    <p style="color: #6b7280; font-size: 13px;">Готовые документы</p>
                 </div>
             </div>
         </div>
@@ -900,33 +666,18 @@
     <!-- ФОРМА ЗАЯВКИ -->
     <section id="order" class="section" style="background: #f8fafc;">
         <div class="container">
-            <div class="form-section">
-                <div class="form-grid">
-                    <div>
-                        <h3 class="form-title">Рассчитайте предварительную стоимость</h3>
-                        <p style="font-size: 18px; color: #4b5563; margin-bottom: 30px;">Оставьте заявку — мы ответим в течение суток и подготовим индивидуальное предложение</p>
-                        
-                        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: #0a3b5c;"></i>
-                                <span>Бесплатная консультация</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <i class="fas fa-check-circle" style="color: #0a3b5c;"></i>
-                                <span>Выезд в день обращения</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="form-section" style="background: white; padding: 40px; border-radius: 20px;">
+                <div style="text-align: center; max-width: 500px; margin: 0 auto;">
+                    <h3 style="font-size: 24px; color: #0a3b5c; margin-bottom: 15px;">Рассчитайте стоимость</h3>
+                    <p style="color: #6b7280; margin-bottom: 25px;">Оставьте заявку — мы подготовим индивидуальное предложение</p>
                     
-                    <div>
-                        <form id="orderForm">
-                            <div class="form-group">
-                                <input type="tel" id="orderPhone" class="form-input" placeholder="Ваш телефон" value="+7" required>
-                            </div>
-                            <button type="submit" class="form-submit">Оставить заявку</button>
-                            <p class="policy">Нажимая на кнопку, вы соглашаетесь с политикой обработки персональных данных</p>
-                        </form>
-                    </div>
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <input type="tel" id="orderPhone" class="form-input" placeholder="+7 (___) ___-__-__" value="+7" required>
+                        </div>
+                        <button type="submit" class="form-submit">Оставить заявку</button>
+                        <p class="policy" style="font-size: 11px; color: #6b7280; margin-top: 15px;">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+                    </form>
                 </div>
             </div>
         </div>
@@ -936,50 +687,47 @@
     <section id="contacts" class="section">
         <div class="container">
             <h2 class="section-title">Контакты</h2>
-            <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
             
             <div class="contacts-grid">
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div style="width: 45px; height: 45px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; flex-shrink: 0;">
                         <i class="fab fa-telegram"></i>
                     </div>
-                    <div class="contact-detail">
-                        <h4>Telegram</h4>
-                        <a href="https://t.me/alllinaami" target="_blank">@alllinaami</a>
-                        <p style="color: #6b7280; margin-top: 5px; font-size: 14px;">Ответ 24/7</p>
+                    <div>
+                        <h4 style="font-size: 16px; color: #0a3b5c; margin-bottom: 5px;">Telegram</h4>
+                        <a href="https://t.me/alllinaami" style="color: #374151; text-decoration: none; font-size: 15px;" target="_blank">@alllinaami</a>
+                        <p style="color: #6b7280; font-size: 12px; margin-top: 5px;">24/7</p>
                     </div>
                 </div>
                 
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div style="width: 45px; height: 45px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; flex-shrink: 0;">
                         <i class="fas fa-phone-alt"></i>
                     </div>
-                    <div class="contact-detail">
-                        <h4>Телефон / WhatsApp</h4>
-                        <a href="tel:+79029426556">+7 902 942-65-56</a>
-                        <p style="color: #6b7280; margin-top: 5px; font-size: 14px;">Пн-Пт 10:00-19:00</p>
+                    <div>
+                        <h4 style="font-size: 16px; color: #0a3b5c; margin-bottom: 5px;">Телефон</h4>
+                        <a href="tel:+79029426556" style="color: #374151; text-decoration: none; font-size: 15px;">+7 902 942-65-56</a>
                     </div>
                 </div>
                 
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div style="width: 45px; height: 45px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; flex-shrink: 0;">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
-                    <div class="contact-detail">
-                        <h4>Регионы работы</h4>
-                        <p><strong>Красноярский край</strong> — основной регион</p>
-                        <p style="margin-top: 5px;">Вся Россия — дистанционно</p>
+                    <div>
+                        <h4 style="font-size: 16px; color: #0a3b5c; margin-bottom: 5px;">Регионы</h4>
+                        <p style="color: #374151; font-size: 14px;">Красноярский край</p>
+                        <p style="color: #6b7280; font-size: 12px;">+ вся РФ</p>
                     </div>
                 </div>
                 
                 <div class="contact-item">
-                    <div class="contact-icon">
+                    <div style="width: 45px; height: 45px; background: #eef7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0a3b5c; flex-shrink: 0;">
                         <i class="fas fa-newspaper"></i>
                     </div>
-                    <div class="contact-detail">
-                        <h4>Наш канал</h4>
-                        <a href="https://t.me/prokadastr24" target="_blank">@prokadastr24</a>
-                        <p style="color: #6b7280; margin-top: 5px; font-size: 14px;">Новости и полезные посты</p>
+                    <div>
+                        <h4 style="font-size: 16px; color: #0a3b5c; margin-bottom: 5px;">Канал</h4>
+                        <a href="https://t.me/prokadastr24" style="color: #374151; text-decoration: none; font-size: 15px;" target="_blank">@prokadastr24</a>
                     </div>
                 </div>
             </div>
@@ -989,40 +737,19 @@
     <!-- ФУТЕР -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>МОЙ КАДАСТР</h4>
-                    <p style="color: #b0c4ce; margin-bottom: 20px;">Профессиональные кадастровые и геодезические услуги с гарантией результата.</p>
-                    <div style="display: flex; gap: 15px;">
-                        <a href="https://t.me/alllinaami" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://t.me/prokadastr24" target="_blank"><i class="fas fa-newspaper"></i></a>
-                    </div>
+            <div class="footer-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                <div>
+                    <h4 style="color: white; margin-bottom: 15px; font-size: 18px;">МОЙ КАДАСТР</h4>
+                    <p style="color: #b0c4ce; font-size: 13px; margin-bottom: 20px;">Профессиональные кадастровые услуги с гарантией</p>
                 </div>
-                
-                <div class="footer-col">
-                    <h4>Услуги</h4>
-                    <a href="#services">Межевание</a>
-                    <a href="#services">Постановка на учет</a>
-                    <a href="#services">Геодезические работы</a>
-                    <a href="#services">Оформление от государства</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Контакты</h4>
-                    <a href="tel:+79029426556">+7 902 942-65-56</a>
-                    <a href="https://t.me/alllinaami">@alllinaami (Telegram)</a>
-                    <p style="color: #b0c4ce; margin-top: 10px;">Красноярский край</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Реквизиты</h4>
-                    <p style="color: #b0c4ce;">ИП предоставляется по запросу</p>
-                    <p style="color: #b0c4ce; margin-top: 10px;">© 2023-2025 МОЙ КАДАСТР</p>
+                <div>
+                    <h4 style="color: white; margin-bottom: 15px; font-size: 16px;">Контакты</h4>
+                    <a href="tel:+79029426556" style="color: #b0c4ce; text-decoration: none; display: block; margin-bottom: 10px; font-size: 14px;">+7 902 942-65-56</a>
+                    <a href="https://t.me/alllinaami" style="color: #b0c4ce; text-decoration: none; display: block; font-size: 14px;">@alllinaami</a>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>Все права защищены. Информация на сайте не является публичной офертой.</p>
+            <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 30px; padding-top: 20px; text-align: center; color: #b0c4ce; font-size: 12px;">
+                <p>© 2023-2025 МОЙ КАДАСТР</p>
             </div>
         </div>
     </footer>
@@ -1039,17 +766,12 @@
         const notificationMessage = document.getElementById('notificationMessage');
 
         function showNotification(type, title, message) {
-            // Устанавливаем иконку
             notificationIcon.className = 'notification-icon ' + type;
             notificationIcon.innerHTML = type === 'success' 
                 ? '<i class="fas fa-check-circle"></i>' 
                 : '<i class="fas fa-exclamation-circle"></i>';
-            
-            // Устанавливаем текст
             notificationTitle.textContent = title;
             notificationMessage.textContent = message;
-            
-            // Показываем уведомление
             notificationOverlay.classList.add('show');
         }
 
@@ -1060,82 +782,32 @@
         // === ФОРМАТИРОВАНИЕ ТЕЛЕФОНА ===
         function formatPhone(input) {
             let value = input.value.replace(/\D/g, '');
-            
-            if (value.length === 0) {
-                input.value = '+7';
-                return;
-            }
-            
-            if (value.length === 1 && value === '7') {
-                input.value = '+7';
-                return;
-            }
-            
-            if (value.length === 1 && value !== '7') {
-                input.value = '+7 (' + value;
-                return;
-            }
-            
-            if (value.length <= 4) {
-                input.value = '+7 (' + value.substring(1);
-                return;
-            }
-            
-            if (value.length <= 7) {
-                input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4);
-                return;
-            }
-            
-            if (value.length <= 9) {
-                input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7);
-                return;
-            }
-            
+            if (value.length === 0) { input.value = '+7'; return; }
+            if (value.length === 1 && value === '7') { input.value = '+7'; return; }
+            if (value.length === 1 && value !== '7') { input.value = '+7 (' + value; return; }
+            if (value.length <= 4) { input.value = '+7 (' + value.substring(1); return; }
+            if (value.length <= 7) { input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4); return; }
+            if (value.length <= 9) { input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7); return; }
             input.value = '+7 (' + value.substring(1, 4) + ') ' + value.substring(4, 7) + '-' + value.substring(7, 9) + '-' + value.substring(9, 11);
         }
 
         // === ОТПРАВКА В TELEGRAM ===
         async function sendToTelegram(phone, formName) {
             const date = new Date();
-            const formattedDate = date.toLocaleString('ru-RU', { 
-                day: '2-digit', 
-                month: '2-digit', 
-                year: 'numeric', 
-                hour: '2-digit', 
-                minute: '2-digit' 
-            });
-            
-            const message = `📌 <b>НОВАЯ ЗАЯВКА С САЙТА</b>\n\n` +
-                          `📞 <b>Телефон:</b> ${phone}\n` +
-                          `📋 <b>Форма:</b> ${formName}\n` +
-                          `🌐 <b>Страница:</b> ${window.location.pathname}\n` +
-                          `🕐 <b>Время:</b> ${formattedDate}\n\n` +
-                          `👤 <b>Источник:</b> МОЙ КАДАСТР`;
+            const formattedDate = date.toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+            const message = `📌 <b>НОВАЯ ЗАЯВКА</b>\n📞 ${phone}\n📋 ${formName}\n🕐 ${formattedDate}`;
             
             let success = false;
-            
             for (const chatId of TELEGRAM_CHATS) {
                 try {
                     const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            chat_id: chatId,
-                            text: message,
-                            parse_mode: 'HTML'
-                        })
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: chatId, text: message, parse_mode: 'HTML' })
                     });
-                    
-                    if (response.ok) {
-                        success = true;
-                    }
-                } catch (error) {
-                    console.error(`Ошибка отправки в чат ${chatId}:`, error);
-                }
+                    if (response.ok) success = true;
+                } catch (e) {}
             }
-            
             return success;
         }
 
@@ -1157,42 +829,19 @@
             });
         });
 
-        // === ПЛАВНАЯ ПРОКРУТКА ===
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // === ТЕЛЕФОНЫ ===
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('input', function() { formatPhone(this); });
+            input.addEventListener('focus', function() { if (this.value === '') this.value = '+7'; });
         });
 
-        // === ФОРМАТИРОВАНИЕ ТЕЛЕФОНОВ ===
-        const phoneInputs = document.querySelectorAll('input[type="tel"]');
-        phoneInputs.forEach(input => {
-            input.addEventListener('input', function() {
-                formatPhone(this);
-            });
-            
-            input.addEventListener('focus', function() {
-                if (this.value === '') {
-                    this.value = '+7';
-                }
-            });
-        });
-
-        // === ОБРАБОТКА ФОРМ ===
+        // === ФОРМЫ ===
         async function handleFormSubmit(formId, phoneId, formName) {
             const form = document.getElementById(formId);
             const phoneInput = document.getElementById(phoneId);
             
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
                 const phone = phoneInput.value.trim();
                 
                 if (phone === '+7' || phone.length < 10) {
@@ -1205,40 +854,26 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Отправка...';
                 submitBtn.disabled = true;
                 
-                try {
-                    const sent = await sendToTelegram(phone, formName);
-                    
-                    if (sent) {
-                        showNotification('success', 'Спасибо!', 'Заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
-                        phoneInput.value = '+7';
-                    } else {
-                        showNotification('error', 'Ошибка', 'Не удалось отправить заявку. Попробуйте позже или напишите в Telegram.');
-                    }
-                } catch (error) {
-                    showNotification('error', 'Ошибка', 'Что-то пошло не так. Попробуйте еще раз.');
-                } finally {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
+                const sent = await sendToTelegram(phone, formName);
+                
+                if (sent) {
+                    showNotification('success', 'Спасибо!', 'Заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
+                    phoneInput.value = '+7';
+                } else {
+                    showNotification('error', 'Ошибка', 'Не удалось отправить заявку. Попробуйте позже.');
                 }
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
             });
         }
 
-        // Инициализация форм
-        handleFormSubmit('quickForm', 'quickPhone', 'Быстрая заявка (герой)');
-        handleFormSubmit('orderForm', 'orderPhone', 'Заявка на расчет стоимости');
+        handleFormSubmit('quickForm', 'quickPhone', 'Быстрая заявка');
+        handleFormSubmit('orderForm', 'orderPhone', 'Заявка на расчет');
 
-        // Закрытие по клику на фон
+        // === ЗАКРЫТИЕ УВЕДОМЛЕНИЯ ===
         notificationOverlay.addEventListener('click', function(e) {
-            if (e.target === notificationOverlay) {
-                closeNotification();
-            }
-        });
-
-        // Закрытие по Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && notificationOverlay.classList.contains('show')) {
-                closeNotification();
-            }
+            if (e.target === notificationOverlay) closeNotification();
         });
     </script>
 </body>
